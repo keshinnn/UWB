@@ -1,0 +1,61 @@
+CONFIG_PRINTK=y：啟用 printk() 低階輸出
+
+CONFIG_LOG=y：啟用 Logger 子系統（用 LOG_INF/LOG_ERR）
+
+CONFIG_USE_SEGGER_RTT=y：啟用 SEGGER RTT 傳輸
+
+CONFIG_RTT_CONSOLE=y：把系統 console 指到 RTT（printk 走 RTT）
+
+CONFIG_LOG_BACKEND_RTT=y：Logger 後端用 RTT（LOG_* 走 RTT）
+
+CONFIG_SERIAL=y：啟用序列埠子系統
+
+CONFIG_UART_CONSOLE=y：把 console 指到 UART（改走 COM 口）
+
+小配方
+
+走 RTT：PRINTK, LOG, USE_SEGGER_RTT, RTT_CONSOLE, LOG_BACKEND_RTT = y；SERIAL, UART_CONSOLE = n
+
+走 UART：PRINTK, LOG, SERIAL, UART_CONSOLE = y；（通常關 RTT 後端避免混淆）
+
+💡 基礎外設
+
+CONFIG_GPIO=y：啟用 GPIO 驅動（LED/按鍵必要）
+
+CONFIG_SPI=y：啟用 SPI（連 DW3110 必備）
+
+CONFIG_I2C=y：啟用 I²C
+
+CONFIG_PWM=y：PWM（亮度/馬達）
+
+CONFIG_ADC=y：類比輸入
+
+CONFIG_COUNTER=y / CONFIG_TIMER=y：計時/計數外設
+
+📶 藍牙（若要 BLE 測試）
+
+CONFIG_BT=y：啟用 BLE
+
+CONFIG_BT_CENTRAL=y / CONFIG_BT_PERIPHERAL=y：Central / Peripheral 角色
+
+CONFIG_BT_UART=y：如用 peripheral_uart/central_uart 範例
+
+🧵 RTOS / 執行緒
+
+CONFIG_MAIN_STACK_SIZE=2048：main thread 堆疊
+
+CONFIG_HEAP_MEM_POOL_SIZE=...：動態配置區（若程式大量 malloc）
+
+🧱 記憶體/除錯輔助
+
+CONFIG_ASSERT=y：啟用斷言
+
+CONFIG_INIT_STACKS=y、CONFIG_THREAD_STACK_INFO=y：堆疊檢查
+
+CONFIG_LOG_BUFFER_SIZE=16384：RTT 日誌環大小（大量輸出時可放大）
+
+🧭 板卡/裝置樹（常見 alias）
+
+DT_ALIAS(led0)、DT_ALIAS(sw0)：對應板上 LED / 按鍵
+
+DTS overlay 常用：-DDTC_OVERLAY_FILE=boards/xxx.overlay

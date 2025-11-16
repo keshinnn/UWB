@@ -1,0 +1,9 @@
+Cmake error code "514"
+zephyr 錯誤使用舊有已建置檔案
+A:將燒錄端 改為非sysbuild (--no-sysbuild)
+
+Cmake error code "396"
+Kconfig 並未載入Zephyr的核心config
+SERIAL/console/USE_SEGGER_RTT 皆沒有被定義
+因此被錯誤套用undefinded symbol
+A: 將主目錄中的Kconfig 載入 (source "Kconfig.zephyr")

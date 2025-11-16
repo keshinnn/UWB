@@ -1,0 +1,16 @@
+:: 主（Initiator）
+west build -b nrf52833dk_nrf52833 . -d build_initiator --pristine -- -DOVERLAY_CONFIG=initiator.conf
+
+:: 從（Responder）
+west build -b nrf52833dk_nrf52833 . -d build_responder --pristine -- -DOVERLAY_CONFIG=responder.conf
+
+
+:: 板子A → 主
+west flash -d build_initiator
+:: 板子B → 從
+west flash -d build_responder
+
+
+如果成功會看到
+Role = INITIATOR   （主板）
+Role = RESPONDER   （從板）
