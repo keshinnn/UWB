@@ -1,0 +1,53 @@
+cmake:
+  application:
+    configuration-dir: C:/Users/User/Desktop/UWB
+    source-dir: C:/Users/User/Desktop/UWB
+  board:
+    name: nrf52833dk
+    qualifiers: nrf52833
+    revision: 
+  devicetree:
+    bindings-dirs:
+     - D:/ncs/v2.9.2/nrf/dts/bindings
+     - D:/ncs/v2.9.2/zephyr/dts/bindings
+    files:
+     - D:/ncs/v2.9.2/zephyr/boards/nordic/nrf52833dk/nrf52833dk_nrf52833.dts
+    include-dirs:
+     - D:/ncs/v2.9.2/nrf/include
+     - D:/ncs/v2.9.2/nrf/dts
+     - D:/ncs/v2.9.2/zephyr/include
+     - D:/ncs/v2.9.2/zephyr/include/zephyr
+     - D:/ncs/v2.9.2/zephyr/dts/common
+     - D:/ncs/v2.9.2/zephyr/dts/x86
+     - D:/ncs/v2.9.2/zephyr/dts/xtensa
+     - D:/ncs/v2.9.2/zephyr/dts/sparc
+     - D:/ncs/v2.9.2/zephyr/dts/riscv
+     - D:/ncs/v2.9.2/zephyr/dts/posix
+     - D:/ncs/v2.9.2/zephyr/dts/nios2
+     - D:/ncs/v2.9.2/zephyr/dts/arm64
+     - D:/ncs/v2.9.2/zephyr/dts/arm
+     - D:/ncs/v2.9.2/zephyr/dts/arc
+     - D:/ncs/v2.9.2/zephyr/dts
+  kconfig:
+    extra-user-files:
+     - initiator.conf
+    files:
+     - D:/ncs/v2.9.2/zephyr/boards/nordic/nrf52833dk/nrf52833dk_nrf52833_defconfig
+     - C:/Users/User/Desktop/UWB/prj.conf
+     - C:/Users/User/Desktop/UWB/initiator.conf
+    user-files:
+     - C:/Users/User/Desktop/UWB/prj.conf
+  toolchain:
+    name: zephyr
+    path: D:/ncs/toolchains/b620d30767/opt/zephyr-sdk
+  vendor-specific:
+    nordic:
+      svdfile: D:/ncs/v2.9.2/modules/hal/nordic/nrfx/mdk/nrf52833.svd
+  zephyr:
+    version: 3.7.99
+    zephyr-base: D:/ncs/v2.9.2/zephyr
+version: 0.1.0
+west:
+  command: D:\ncs\toolchains\b620d30767\opt\bin\Scripts\west build --no-sysbuild -s . -b nrf52833dk/nrf52833 -d build_i1 --pristine -- -DOVERLAY_CONFIG=initiator.conf
+  topdir: D:\ncs\v2.9.2
+  version: 1.2.0

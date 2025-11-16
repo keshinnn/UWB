@@ -1,0 +1,16 @@
+# 先載入 Zephyr 的核心 Kconfig 樹，
+# 這樣 GPIO / SERIAL / RTT / LOG ... 等符號才會被定義
+source "Kconfig.zephyr"
+
+menu "App options"
+
+choice APP_ROLE
+    prompt "App role"
+    default APP_ROLE_INITIATOR
+config APP_ROLE_INITIATOR
+    bool "Initiator"
+config APP_ROLE_RESPONDER
+    bool "Responder"
+endchoice
+
+endmenu

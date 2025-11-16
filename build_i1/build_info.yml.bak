@@ -1,0 +1,5 @@
+west:
+  command: D:\ncs\toolchains\b620d30767\opt\bin\Scripts\west build --no-sysbuild -s
+    . -b nrf52833dk/nrf52833 -d build_i1 --pristine -- -DOVERLAY_CONFIG=initiator.conf
+  topdir: D:\ncs\v2.9.2
+  version: 1.2.0
